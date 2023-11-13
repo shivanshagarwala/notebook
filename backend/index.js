@@ -3,6 +3,16 @@ const cors = require('cors')
 
 const DBconnect = require('./connection/dbConnect');
 const app = express();
+
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1.vercel,app"],
+        methods:["POST","GET"],
+        credentials: true
+    }
+));
+app.get("/",(req,res)=>{res.join("Hello");})//
+
 require('dotenv').config();
 
 const task_notes = require('./routes/task_notes');
